@@ -1,0 +1,23 @@
+{% extends "home/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Welcome to Social Bots</h1>
+    <p class="lead"></p>
+    <p></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <a href="{% url 'ibot:index' %}">IBot</a>
+    </div>
+    <div class="col-md-4">
+        <a href="{% url 'fbot:index' %}">FBot</a>
+    </div>
+    <div class="col-md-4">
+        <a href="{% url 'tbot:index' %}">TBot</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+
+{% if posts %}
+<div>
+    {% for post in posts %}
+    <h4><a href="#">{{ post.heading }}</a> </h4>
+        <p>{{ post.body }}</p>
+    {% endfor %}
+</div>
+{% else %}
+    <p>No Posts are available.</p>
+{% endif %}
