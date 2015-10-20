@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - My Django Application</title>
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'home/content/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="{% static 'home/content/site.css' %}" />
-    <script src="{% static 'home/scripts/modernizr-2.6.2.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </head>
 
 <body>
@@ -40,9 +40,9 @@
         </footer>
     </div>
 
-    <script src="{% static 'home/scripts/jquery-1.10.2.js' %}"></script>
-    <script src="{% static 'home/scripts/bootstrap.js' %}"></script>
-    <script src="{% static 'home/scripts/respond.js' %}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 {% block scripts %}{% endblock %}
 
 </body>
