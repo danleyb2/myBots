@@ -49,6 +49,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'test1',
+	'home',
+	'Ibot',
 )
 
 MIDDLEWARE_CLASSES = (
