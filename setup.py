@@ -10,7 +10,7 @@ setup(
     # GETTING-STARTED: set your app description:
     description='OpenShift App',
     # GETTING-STARTED: set author name (your name):
-    author='Your Name',
+    author='Nyaundi Brian',
     # GETTING-STARTED: set author email (your email):
     author_email='example@example.com',
     # GETTING-STARTED: set author url (your url):
@@ -18,6 +18,7 @@ setup(
     # GETTING-STARTED: define required django version:
     install_requires=[
         'Django==1.8.4'
+        ''
     ],
     dependency_links=[
         'https://pypi.python.org/simple/django/'

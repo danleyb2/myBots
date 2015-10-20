@@ -19,5 +19,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^test1/$',include('test1.urls'))
+    url(r'^test1/$',include('test1.urls')),
+	url(r'^ibot/',include('Ibot.urls',namespace="ibot")),
+    url(r'^',include('home.urls',namespace="home"))
+
 ]

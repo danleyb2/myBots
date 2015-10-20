@@ -1,0 +1,28 @@
+{% extends 'Ibot/layout.html' %}
+{% block content %}
+
+{% if posts %}
+<div>
+
+    {% for k in posts %}
+        <div class="col-md-2">
+    <div class="col-md-12">
+        <img src="{{ k.link }}" style="width: 100px;height: 100px">
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-12">{{ k.username }}</div>
+        <span>{{ k.likes_count }}</span><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+        <span>{{ k.comments_count }}</span><a href="#"><i class="glyphicon glyphicon-comment"></i></a>
+    </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% else %}
+
+
+    <p>No Posts are available.</p>
+{% endif %}
+
+{% endblock %}
