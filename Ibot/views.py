@@ -1,25 +1,51 @@
-
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
 
-
-import urllib
+import requests
 import json
+from .config import CONFIG,ACCESS_TOKEN
+
 # Create your views here.
 
-'''
-index display last posted pic owners with their likes count
 
-like last number posted pics and return name of those liked
-schedule likes
 
-'''
+
+class Ibot:
+    API_URL = 'https://api.instagram.com/v1/'
+    USER_INFO_URL = API_URL + 'users/'
+
+    def __init__(self, token):
+        self.TOKEN = token
+
+    def get_req(self, url):
+        parameters = {'access_token': self.TOKEN}
+        return requests.get(url, params=parameters)
+
 
 def index(request):
-    return render(request,'Ibot/index.html')
+    bot = Ibot(ACCESS_TOKEN)
+    # feed=bot.get_req(Ibot.API_URL+'self/feed').text
+
+    feed = requests.get(
+        'https://api.instagram.com/v1/users/self/feed?access_token='+ACCESS_TOKEN).text
+    data = json.loads(feed)
+
+    users=[]
+    for i in data['data']:
+        d=i['user']
+        d['likes_count']=i['likes']['count']
+        d['comments_count']=i['comments']['count']
+        d['link']=i['images']['thumbnail']['url']
+        users.append(d)
+
+    context = {
+        'posts':users
+    }
+    return render(request,'Ibot/index.html',context)
+
 
 def like(request):
-    ACCESS_TOKEN='446256538.cfb70db.5aeebfad6ad1400898b1ddef9a70466e'
-    furl="https://api.instagram.com/v1/users/self/feed?access_token="+ACCESS_TOKEN
-    response=urllib.urlopen(furl)
-    data=response.read()
+    furl = "https://api.instagram.com/v1/users/self/feed?access_token=" + ACCESS_TOKEN
+
     pass
+
