@@ -6,7 +6,7 @@ from datetime import datetime
 
 urlpatterns=[
     # /polls/
-    url(r'^$',views.home,name='index'),
+    url(r'^$',views.index,name='index'),
     url(r'^like',views.like,name='like'),
 
 
