@@ -18,10 +18,12 @@ setup(
     # GETTING-STARTED: define required django version:
     install_requires=[
         'Django==1.8.4',
-        'requests==2.8.1'
+        'requests==2.8.1',
+		'authomatic'
     ],
     dependency_links=[
         'https://pypi.python.org/simple/django/',
-		'https://pypi.python.org/simple/requests/'
+		'https://pypi.python.org/simple/requests/',
+		'https://pypi.python.org/simple/authomatic/'
     ],
 )
