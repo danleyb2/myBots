@@ -21,6 +21,7 @@ setup(
         'requests==2.8.1'
     ],
     dependency_links=[
-        'https://pypi.python.org/simple/django/'
+        'https://pypi.python.org/simple/django/',
+		'https://pypi.python.org/simple/requests/'
     ],
 )
