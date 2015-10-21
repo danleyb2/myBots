@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 import requests
 import json
@@ -48,5 +49,5 @@ def index(request):
 def like(request,media_id):
     furl = "https://api.instagram.com/v1/media/"+media_id+"/likes?access_token=" + ACCESS_TOKEN
     feed=requests.post(furl)
-    return index(request)
+    return HttpResponseRedirect(reverse('index'))
 
