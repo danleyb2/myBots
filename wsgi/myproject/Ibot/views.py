@@ -33,6 +33,7 @@ def index(request):
     users=[]
     for i in data['data']:
         d=i['user']
+        d['mid']=i['id']
         d['likes_count']=i['likes']['count']
         d['comments_count']=i['comments']['count']
         d['link']=i['images']['low_resolution']['url']
@@ -44,8 +45,8 @@ def index(request):
     return render(request,'Ibot/index.html',context)
 
 
-def like(request):
-    furl = "https://api.instagram.com/v1/users/self/feed?access_token=" + ACCESS_TOKEN
-
-    pass
+def like(request,media_id):
+    furl = "https://api.instagram.com/v1/media/"+media_id+"/likes?access_token=" + ACCESS_TOKEN
+    feed=requests.post(furl)
+    return index(request)
 

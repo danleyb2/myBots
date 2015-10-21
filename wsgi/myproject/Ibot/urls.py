@@ -7,7 +7,7 @@ from datetime import datetime
 urlpatterns=[
     # /polls/
     url(r'^$',views.index,name='index'),
-    url(r'^like',views.like,name='like'),
+    url(r'^like/(?P<media_id>[0-9_]+)/$',views.like,name='like'),
 
 
 ]
