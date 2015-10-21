@@ -35,7 +35,7 @@ def index(request):
         d=i['user']
         d['likes_count']=i['likes']['count']
         d['comments_count']=i['comments']['count']
-        d['link']=i['images']['standard_resolution']['url']
+        d['link']=i['images']['low_resolution']['url']
         users.append(d)
 
     context = {
