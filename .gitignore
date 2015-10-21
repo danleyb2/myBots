@@ -6,4 +6,5 @@
 .project
 .pydevproject
 /wsgi/myproject/db.sqlite3
+wsgi/myproject/Ibot/ibot.py
 .idea
