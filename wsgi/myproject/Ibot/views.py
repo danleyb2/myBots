@@ -49,5 +49,5 @@ def index(request):
 def like(request,media_id):
     furl = "https://api.instagram.com/v1/media/"+media_id+"/likes?access_token=" + ACCESS_TOKEN
     feed=requests.post(furl)
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('ibot/index'))
 
