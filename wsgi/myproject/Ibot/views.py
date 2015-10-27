@@ -27,12 +27,11 @@ class Ibot:
 def index(request):
     bot = Ibot(ACCESS_TOKEN)
     # feed=bot.get_req(Ibot.API_URL+'self/feed').text
-    '''
+   
     feed = requests.get(
         'https://api.instagram.com/v1/users/self/feed?access_token='+ACCESS_TOKEN).text
     data = json.loads(feed)
-    '''
-    data=loaded
+
 
     users=[]
     for i in data['data']:
@@ -46,6 +45,7 @@ def index(request):
         users.append(d)
 
     context = {
+        'title':'IBot',
         'posts':users
     }
     return render(request,'Ibot/index.html',context)
