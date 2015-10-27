@@ -31,14 +31,14 @@
     <textarea class="form-control"></textarea>
       <button class="btn btn-default">Comment</button>
       {% for comment in k.comments %}
-          <div><img src="{{ comment.from.profile_picture }}"> <a href="#">{{ comment.from.username }}</a> {{ comment.text }}</div>
+          <div><img style="width: 20px;height: 20px;" src="{{ comment.from.profile_picture }}"> <a href="#">{{ comment.from.username }}</a> {{ comment.text }}</div>
       {% endfor %}
 
   </div>
   <div id="{{forloop.counter}}-l" class="tab-pane fade">
     <a href="like/{{k.mid}}">Like<i class="glyphicon glyphicon-thumbs-up"></i></a>
       {% for like in k.likes %}
-          <div><img src="{{ like.profile_picture }}"> <a href="#">{{ like.username }}</a> </div>
+          <div><img style="width: 40px;height: 40px;" src="{{ like.profile_picture }}"> <a href="#">{{ like.username }}</a> </div>
       {% endfor %}
   </div>
 </div>
