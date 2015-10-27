@@ -3,17 +3,46 @@
 
 {% if posts %}
 <div>
-
     {% for k in posts %}
-        <div class="col-md-4">
+    <div class="col-md-4">
+    <ul class="nav nav-tabs">
+  <li class="active">
+      <a data-toggle="tab" href="#{{forloop.counter}}">{{ k.username }}</a>
+  </li>
+  <li>
+      <a data-toggle="tab" href="#{{forloop.counter}}-c"> <span>{{ k.comments_count }}</span> <i class="glyphicon glyphicon-comment"></i></a>
+  </li>
+  <li>
+      <a data-toggle="tab" href="#{{forloop.counter}}-l"> <span>{{ k.likes_count }}</span> <i class="glyphicon glyphicon-thumbs-up"></i></a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div id="{{forloop.counter}}" class="tab-pane fade in active">
     <div class="col-md-12">
         <img src="{{ k.link }}" style="width:320px;height: 320px">
     </div>
-    <div class="col-md-12">
-        <div class="col-md-12">{{ k.username }}</div>
-        <span>{{ k.likes_count }}</span><a href="like/{{k.mid}}"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-        <span>{{ k.comments_count }}</span><a href="#"><i class="glyphicon glyphicon-comment"></i></a>
+      <div class="col-md-12">
+        <div class="col-md-12"></div>
+
     </div>
+  </div>
+  <div id="{{forloop.counter}}-c" class="tab-pane fade">
+    <textarea class="form-control"></textarea>
+      <button class="btn btn-default">Comment</button>
+      {% for comment in k.comments %}
+          <div><img src="{{ comment.from.profile_picture }}"> <a href="#">{{ comment.from.username }}</a> {{ comment.text }}</div>
+      {% endfor %}
+
+  </div>
+  <div id="{{forloop.counter}}-l" class="tab-pane fade">
+    <a href="like/{{k.mid}}">Like<i class="glyphicon glyphicon-thumbs-up"></i></a>
+      {% for like in k.likes %}
+          <div><img src="{{ like.profile_picture }}"> <a href="#">{{ like.username }}</a> </div>
+      {% endfor %}
+  </div>
+</div>
+
     </div>
     {% endfor %}
 </div>
