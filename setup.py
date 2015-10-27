@@ -19,7 +19,7 @@ setup(
     install_requires=[
         'Django==1.8.4',
         'requests==2.8.1',
-        'python-instagram'
+        'python-instagram',
 		'authomatic',
     ],
     dependency_links=[
